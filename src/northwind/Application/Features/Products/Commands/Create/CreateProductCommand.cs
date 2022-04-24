@@ -10,16 +10,18 @@ using Domain.Entities;
 using AutoMapper;
 using Application.Features.Products.Rules;
 using Core.Mailing;
+using Core.Application.Pipelines.Authorization;
 
 namespace Application.Features.Products.Commands.Create
 {
-    public class CreateProductCommand:IRequest<CreatedProductDto>
+    public class CreateProductCommand : IRequest<CreatedProductDto>, ISecuredRequest
     {
         public int CategoryId { get; set; }
         public string ProductName { get; set; }
         public decimal UnitPrice { get; set; }
         public short UnitsInStock { get; set; }
         public string QuantityPerUnit { get; set; }
+        public string[] Roles => new string[] { "Admin" };
 
         public class CreateProductCommandHandler : IRequestHandler<CreateProductCommand, CreatedProductDto>
         {
