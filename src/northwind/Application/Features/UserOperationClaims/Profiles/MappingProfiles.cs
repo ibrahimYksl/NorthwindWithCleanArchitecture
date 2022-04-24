@@ -18,7 +18,7 @@ namespace Application.Features.UserOperationClaims.Profiles
             CreateMap<UserOperationClaim, UserOperationClaimToAddDto>().ReverseMap();
             CreateMap<UserOperationClaim, CreatedUserOperationClaimDto>().ReverseMap();
 
-
+            //
         }
     }
 
